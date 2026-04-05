@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -91,6 +92,29 @@ hr { border:none; height:6px; background:linear-gradient(to right,#ffec80,#ffcc0
   .memories-bottom{ width:250px; height:150px; }
   .memories-bottom .bottom-item{ width:80px; height:120px; }
 }
+.love-button {
+  background: linear-gradient(135deg, #ff69b4, #ff1493); /* hot pink to deep pink */
+  color: white;
+  font-family: cursive;
+  font-size: 18px;
+  padding: 12px 25px;
+  border: none;
+  border-radius: 30px; /* rounded pill shape */
+  cursor: pointer;
+  box-shadow: 0 5px 15px rgba(255, 20, 147, 0.4);
+  transition: all 0.3s ease;
+}
+
+.love-button:hover {
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 10px 20px rgba(255, 20, 147, 0.6);
+  background: linear-gradient(135deg, #ff1493, #ff69b4);
+}
+
+.love-button:active {
+  transform: translateY(0) scale(0.98);
+  box-shadow: 0 3px 10px rgba(255, 20, 147, 0.4);
+}
 </style>
 </head>
 <body>
@@ -182,6 +206,8 @@ hr { border:none; height:6px; background:linear-gradient(to right,#ffec80,#ffcc0
   <img class="bottom-item" src="image-center.jpg" alt="Center Image">
   <video class="bottom-item" src="video2.mp4" autoplay loop muted></video>
 </div>
-
+<div style="text-align: center; margin-top: 20px;">
+<a href="envelope.html" class="love-button">Read My Letter 💌</a>
+</div>
 </body>
 </html>
