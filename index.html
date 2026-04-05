@@ -6,170 +6,90 @@
 <title>My Love Site</title>
 <style>
 /* RESET */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-html, body {
-  height: 100%;
-  font-family: Verdana, Geneva, sans-serif;
-}
-
-/* BODY BACKGROUND IMAGE */
-body {
-  background: url('3rd.jpg') no-repeat center center/cover;
-  background-attachment: fixed;
-  color: white;
-}
+* { margin:0; padding:0; box-sizing:border-box; }
+html, body { height:100%; font-family:Verdana, Geneva, sans-serif; background: url('3rd.jpg') no-repeat center center/cover; background-attachment: fixed; color:white; }
 
 /* HEADINGS */
-h1 {
-  font-family: cursive;
-  text-align: center;
-  margin: 20px 0;
-}
+h1 { font-family:cursive; text-align:center; margin:20px 0; }
+h2 { text-align:center; font-size:36px; margin-bottom:10px; }
 
-/* SPARKLE H2 */
-h2.sparkle-hover {
-  font-family: cursive;
-  font-size: 36px;
-  text-align: center;
-  color: #8a2be2; /* default readable color */
-  transition: all 0.5s ease;
-  -webkit-text-fill-color: #8a2be2;
-  margin: 20px 0 10px 0;
+/* SHIMMER TEXT */
+.about-her, .what-she-loves, .things-she-hates {
+  font-family:cursive; font-size:15px;
+  background: linear-gradient(90deg,#ff1493,#dc143c,#ff69b4);
+  background-size:300% 100%;
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  text-shadow:0 0 3px #dc143c;
+  animation: shimmer 60s linear infinite;
 }
+@keyframes shimmer { 0%{background-position:-300% 0;} 100%{background-position:300% 0;} }
 
-/* Sparkle on hover/touch */
-h2.sparkle-hover:hover,
-h2.sparkle-hover:active {
-  background: linear-gradient(
-    90deg,
-    #ff1493,
-    #dc143c,
-    #ff69b4,
-    #8a2be2,
-    #ff1493
-  );
-  background-size: 300% 100%;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  text-shadow: 0 0 5px #ff69b4;
+/* THINGS SECTIONS */
+.things { color:#ff1493; font-size:30px; margin-top:30px; }
+.thing { font-size:20px; color:#ff1493; }
+
+/* LISTS */
+ul { margin:0; padding-left:20px; list-style-position:inside; }
+ul li { margin-bottom:5px; }
+
+/* HR */
+hr { border:none; height:6px; background:linear-gradient(to right,#ffec80,#ffcc00,#ffb200); border-radius:3px; margin:20px auto; width:95%; }
+
+/* STORY PARAGRAPH */
+.story p { text-align:center; font-size:20px; color:aqua; }
+
+/* MEMORY GALLERY (original 3 images) */
+.memories {
+  display:flex; justify-content:center; gap:10px; padding:20px 0;
+}
+.memory img {
+  width:200px; height:300px; object-fit:cover;
+  border-radius:10px; border:2px solid white;
+  transition: all 0.3s ease; filter:brightness(0.5); cursor:pointer;
+}
+.memory:hover img { filter:brightness(1); transform:scale(1.05); }
+.memories:hover .memory:not(:hover) img { filter:brightness(0.3); }
+
+/* BOTTOM SPINNING GALLERY (2 videos + 1 center image) */
+.memories-bottom {
+  width: 400px; height: 250px; margin: 40px auto; position: relative;
+  animation: spin 20s linear infinite;
+}
+.memories-bottom .bottom-item {
+  position: absolute; top: 0; left: 50%;
+  transform-origin: center center;
+  width: 120px; height: 180px;
+  object-fit: cover; border-radius: 10px; border:2px solid white;
+  filter:brightness(0.6); transition: all 0.3s ease;
+}
+.memories-bottom .bottom-item:nth-child(1) { transform: rotate(0deg) translateX(160px) rotate(0deg); }
+.memories-bottom .bottom-item:nth-child(2) { transform: rotate(120deg) translateX(160px) rotate(-120deg); }
+.memories-bottom .bottom-item:nth-child(3) { transform: rotate(240deg) translateX(160px) rotate(-240deg); }
+.memories-bottom .bottom-item:hover { filter:brightness(1) scale(1.05); }
+
+@keyframes spin { from{transform:rotate(0deg);} to{transform:rotate(360deg);} }
+
+/* SPARKLE HOVER FOR H2 */
+.sparkle-hover {
+  font-family:cursive; font-size:36px; text-align:center; color:#8a2be2;
+  transition: all 0.5s ease; -webkit-text-fill-color:#8a2be2;
+}
+.sparkle-hover:hover, .sparkle-hover:active {
+  background:linear-gradient(90deg,#ff1493,#dc143c,#ff69b4,#8a2be2,#ff1493);
+  background-size:300% 100%; -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent; text-shadow:0 0 5px #ff69b4;
   animation: shimmer 5s linear infinite;
 }
 
-@keyframes shimmer {
-  0% { background-position: -300% 0; }
-  100% { background-position: 300% 0; }
-}
-
-/* MOBILE: automatic sparkle on touch */
-@media (hover: none) and (pointer: coarse) {
-  h2.sparkle-hover {
-    background: linear-gradient(
-      90deg,
-      #ff1493,
-      #dc143c,
-      #ff69b4,
-      #8a2be2,
-      #ff1493
-    );
-    background-size: 300% 100%;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    text-shadow: 0 0 5px #ff69b4;
-    animation: shimmer 5s linear infinite;
-  }
-}
-
-/* SECTION TEXT */
-.about-her, .what-she-loves, .things-she-hates {
-  font-family: cursive;
-  font-size: 15px;
-  background: linear-gradient(90deg, #ff1493, #dc143c, #ff69b4);
-  background-size: 300% 100%;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  text-shadow: 0 0 3px #dc143c;
-  animation: shimmer 60s linear infinite;
-}
-
-.things {
-  color: #ff1493;
-  font-size: 30px;
-  text-align: center;
-  margin-top: 30px;
-}
-
-.thing {
-  font-size: 20px;
-  color: #ff1493;
-}
-
-/* LISTS */
-ul {
-  margin: 0;
-  padding-left: 20px;
-  list-style-position: inside;
-}
-
-ul li {
-  margin-bottom: 5px;
-}
-
-/* HR */
-hr {
-  border: none;
-  height: 6px;
-  background: linear-gradient(to right, #ffec80, #ffcc00, #ffb200);
-  border-radius: 3px;
-  margin: 20px auto;
-  width: 95%;
-}
-
-/* STORY PARAGRAPH */
-.story p {
-  text-align: center;
-  font-size: 20px;
-  color: aqua;
-}
-
-/* MEMORY GALLERY */
-.memories {
-  display: flex;
-  justify-content: center;
-  gap: 10px;
-  padding: 20px;
-}
-
-.memory img {
-  width: 200px;
-  height: 300px;
-  object-fit: cover;
-  transition: all 0.3s ease;
-  filter: brightness(0.5);
-  cursor: pointer;
-}
-
-.memory img:hover {
-  filter: brightness(1);
-  transform: scale(1.05);
-}
-
-.memory img:hover ~ .memory img {
-  filter: brightness(0.3);
-}
-
-/* MOBILE ADJUSTMENTS */
+/* MOBILE */
 @media (max-width: 600px) {
-  h1 { font-size: 24px; }
-  h2.sparkle-hover { font-size: 28px; }
-  .things { font-size: 25px; }
-  .thing { font-size: 18px; }
-  .story p { font-size: 16px; }
-  .memory img { width: 150px; height: 225px; }
+  h1{ font-size:24px; } h2{ font-size:28px; }
+  .things{ font-size:25px; } .thing{ font-size:18px; }
+  .story p{ font-size:16px; }
+  .memory img{ width:120px; height:180px; }
+  .memories-bottom{ width:250px; height:150px; }
+  .memories-bottom .bottom-item{ width:80px; height:120px; }
 }
 </style>
 </head>
@@ -178,7 +98,7 @@ hr {
 <h1>The Love Of My Life 💞</h1>
 
 <div class="about-her">
-  <h2 class="sparkle-hover">Things About Her:</h2>
+  <h2>Things About Her:</h2>
   <ul>
     <li>Full name: Ashney Ayessa Lipa Abella</li>
     <li>Birthday: July 15, 2009</li>
@@ -199,12 +119,12 @@ hr {
 </div>
 
 <div class="story">
-  <h2 class="sparkle-hover">How We Met</h2>
+  <h2>How We Met</h2>
   <p>We met first during our school intrams. The match hasn't started yet, while me and my team are in the lobby, she added me for the reason of stalking. We won and became champions. A few days after, I invited her to play since I got tired playing solo. Then eventually, she found my FB account. We played more, and slowly I developed feelings for her. She confessed indirectly, saying she admired me — and that's how I met your mom.</p>
 </div>
 
 <div>
-  <h2 class="sparkle-hover">Things About Our Relationship</h2>
+  <h2 class="things">Things About Our Relationship</h2>
   <ul class="thing">
     <li>We met at MLBB, but we're schoolmates</li>
     <li>She liked me first</li>
@@ -219,7 +139,7 @@ hr {
 </div>
 
 <div class="what-she-loves">
-  <h2 class="sparkle-hover">What She Loves</h2>
+  <h2>What she loves:</h2>
   <ul>
     <li>Hugs</li>
     <li>Cuddles</li>
@@ -235,7 +155,7 @@ hr {
 </div>
 
 <div class="things-she-hates">
-  <h2 class="sparkle-hover">Things She Hates <img src="https://media.tenor.com/FtlLleuICOcAAAAM/angry-emoji.gif" width="50" height="30"></h2> 
+  <h2>Things She Hates <img src="https://media.tenor.com/FtlLleuICOcAAAAM/angry-emoji.gif" width="50" height="30"></h2> 
   <ul>
     <li>Cheating</li>
     <li>Liars</li>
@@ -248,17 +168,19 @@ hr {
   </ul>
 </div>
 
+<!-- ORIGINAL 3 IMAGE GALLERY -->
 <h2 class="sparkle-hover">Our Memories 💞</h2>
 <div class="memories">
-  <div class="memory">
-    <img src="memory1.jpg" alt="Memory 1">
-  </div>
-  <div class="memory">
-    <img src="memory2.jpg" alt="Memory 2">
-  </div>
-  <div class="memory">
-    <img src="memory3.jpg" alt="Memory 3">
-  </div>
+  <div class="memory"><img src="memory1.jpg" alt="Memory 1"></div>
+  <div class="memory"><img src="memory2.jpg" alt="Memory 2"></div>
+  <div class="memory"><img src="memory3.jpg" alt="Memory 3"></div>
+</div>
+
+<!-- BOTTOM SPINNING GALLERY: 2 videos + 1 center image -->
+<div class="memories-bottom">
+  <video class="bottom-item" src="video1.mp4" autoplay loop muted></video>
+  <img class="bottom-item" src="image-center.jpg" alt="Center Image">
+  <video class="bottom-item" src="video2.mp4" autoplay loop muted></video>
 </div>
 
 </body>
