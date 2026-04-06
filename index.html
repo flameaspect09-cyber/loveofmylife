@@ -43,7 +43,7 @@ h2 {
 .thing {
   font-family: Arial, Helvetica, sans-serif;
   font-size:15px;
-  color:black;
+  color: white;
 }
 
 /* THINGS SECTIONS */
@@ -62,14 +62,14 @@ ul {
 
 ul li {
   margin-bottom:5px;
-  color:black;
+  color: white;
 }
 
 /* STORY PARAGRAPH */
 .story p {
   text-align:center;
   font-size:20px;
-  color:black;
+  color:white;
 }
 /* MEMORY GALLERY (original 3 images) */ .memories { display:flex; justify-content:center; gap:10px; padding:20px 0; } .memory img { width:200px; height:300px; object-fit:cover; border-radius:10px; border:2px solid white; transition: all 0.3s ease; filter:brightness(0.5); cursor:pointer; } .memory:hover img { filter:brightness(1); transform:scale(1.05); } .memories:hover .memory:not(:hover) img { filter:brightness(0.3); } /* BOTTOM SPINNING GALLERY (2 videos + 1 center image) */ .memories-bottom { width: 400px; height: 250px; margin: 40px auto; position: relative; animation: spin 20s linear infinite; } .memories-bottom .bottom-item { position: absolute; top: 0; left: 50%; transform-origin: center center; width: 120px; height: 180px; object-fit: cover; border-radius: 10px; border:2px solid white; filter:brightness(0.6); transition: all 0.3s ease; } .memories-bottom .bottom-item:nth-child(1) { transform: rotate(0deg) translateX(160px) rotate(0deg); } .memories-bottom .bottom-item:nth-child(2) { transform: rotate(120deg) translateX(160px) rotate(-120deg); } .memories-bottom .bottom-item:nth-child(3) { transform: rotate(240deg) translateX(160px) rotate(-240deg); } .memories-bottom .bottom-item:hover { filter:brightness(1) scale(1.05); } @keyframes spin { from{transform:rotate(0deg);} to{transform:rotate(360deg);} } /* SPARKLE HOVER FOR H2 */ .sparkle-hover { font-family:cursive; font-size:36px; text-align:center; color:#8a2be2; transition: all 0.5s ease; -webkit-text-fill-color:#8a2be2; } .sparkle-hover:hover, .sparkle-hover:active { background:linear-gradient(90deg,#ff1493,#dc143c,#ff69b4,#8a2be2,#ff1493); background-size:300% 100%; -webkit-background-clip:text; -webkit-text-fill-color:transparent; text-shadow:0 0 5px #ff69b4; animation: shimmer 5s linear infinite; } /* MOBILE */ @media (max-width: 600px) { h1{ font-size:24px; } h2{ font-size:28px; } .things{ font-size:25px; } .thing{ font-size:18px; } .story p{ font-size:16px; } .memory img{ width:120px; height:180px; } .memories-bottom{ width:250px; height:150px; } .memories-bottom .bottom-item{ width:80px; height:120px; } } .love-button { background: linear-gradient(135deg, #ff69b4, #ff1493); /* hot pink to deep pink */ color: white; font-family: cursive; font-size: 18px; padding: 12px 25px; border: none; border-radius: 30px; /* rounded pill shape */ cursor: pointer; box-shadow: 0 5px 15px rgba(255, 20, 147, 0.4); transition: all 0.3s ease; } .love-button:hover { transform: translateY(-3px) scale(1.05); box-shadow: 0 10px 20px rgba(255, 20, 147, 0.6); background: linear-gradient(135deg, #ff1493, #ff69b4); } .love-button:active { transform: translateY(0) scale(0.98); box-shadow: 0 3px 10px rgba(255, 20, 147, 0.4); }
 
