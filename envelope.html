@@ -9,29 +9,33 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
-  background: #ffe6e6; /* light romantic background */
+  min-height: 100vh;
+  background: #ffe6e6;
   font-family: cursive;
+  padding: 20px;
+  box-sizing: border-box;
 }
 
+/* Envelope container */
 .envelope-container {
   position: relative;
-  width: 300px;
-  height: 200px;
+  width: 450px;
+  max-width: 95%;
   cursor: pointer;
 }
 
+/* Envelope body */
 .envelope {
   width: 100%;
-  height: 100%;
   background: #fff0f5;
   border: 2px solid #ff69b4;
-  border-radius: 10px;
+  border-radius: 12px;
   position: relative;
   overflow: hidden;
   transition: transform 0.8s ease;
 }
 
+/* Envelope flap */
 .envelope::before {
   content: '';
   position: absolute;
@@ -39,46 +43,48 @@ body {
   left: 0;
   width: 0;
   height: 0;
-  border-left: 150px solid transparent;
-  border-right: 150px solid transparent;
-  border-bottom: 100px solid #ff69b4; /* envelope flap color */
+  border-left: 225px solid transparent;
+  border-right: 225px solid transparent;
+  border-bottom: 140px solid #ff69b4;
   transition: transform 0.8s ease;
   transform-origin: top center;
 }
 
 .envelope:hover::before {
-  transform: rotateX(180deg); /* flap opens on hover */
+  transform: rotateX(180deg);
 }
 
+/* Letter inside */
 .letter {
-  position: absolute;
-  top: 100%;
+  position: relative; /* changed from absolute */
+  top: 0;
   left: 0;
   width: 100%;
-  height: 100%;
   background: #fffaf0;
-  border: 2px solid #ff69b4;
-  padding: 20px;
+  border-top: 2px solid #ff69b4;
+  padding: 30px;
   box-sizing: border-box;
   opacity: 0;
-  transition: top 0.8s ease, opacity 0.8s ease;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  max-height: 0; /* hidden initially */
+  overflow: hidden;
+  transition: max-height 1s ease, opacity 0.8s ease;
   text-align: center;
+  font-size: 18px;
+  line-height: 1.5;
 }
 
 .envelope:hover .letter {
-  top: 0;
   opacity: 1;
+  max-height: 800px; /* fully open to fit long text */
 }
 
+/* Open text below envelope */
 .open-text {
   position: absolute;
-  bottom: -40px;
+  bottom: -50px;
   left: 50%;
   transform: translateX(-50%);
-  font-size: 18px;
+  font-size: 20px;
   color: #ff1493;
   font-weight: bold;
   animation: bounce 1.5s infinite;
@@ -88,6 +94,14 @@ body {
   0%, 100% { transform: translateX(-50%) translateY(0); }
   50% { transform: translateX(-50%) translateY(-10px); }
 }
+
+/* MOBILE ADJUSTMENTS */
+@media (max-width: 600px) {
+  .envelope-container { width: 95%; }
+  .envelope::before { border-left: 47.5% solid transparent; border-right: 47.5% solid transparent; border-bottom: 120px solid #ff69b4; }
+  .letter { font-size: 16px; padding: 20px; }
+  .open-text { font-size: 18px; bottom: -40px; }
+}
 </style>
 </head>
 <body>
@@ -95,10 +109,17 @@ body {
 <div class="envelope-container">
   <div class="envelope">
     <div class="letter">
-      💌 My Dearest,  
-      <br>  
-      I love you more than words can express.  
-      <br>  
+      💌 My Dearest,<br><br>
+      Happy 1st Monthsarry baby!!!!! Ang bilis nang panahon, parang kailan lang crush mo lang ako ngayon 1st monthsarry na natin.<br><br>
+      Nung una hindi ko ineexpect na mapunta sa'yo, na maging tayo. Nung una akala ko infatuated ka lang, at hanggang ngayon diko maiwasan maisip na baka nga. Pero pinapakita mo naman sakin na hindi ka infatuated.
+      I hope na sana mas tumagal pa tayo, I hope na kahit gano kahirap at ka imposible ay hindi tayo susuko, sana samahan mo'ko palagi kahit zero days ako.
+      <br>
+      Nakikita ko kung gano mo gusto maging successful, nakikita ko kung gano ka kahanda ibigay lahat para sakin. And I know that I shoul've been the one that's doing all those things, and I know that I've been fallin short of the man I promised to become.
+      <br>
+      
+      Ash sana 'wag kang sumuko, sana 'wag kang bumitaw, sana samahan mo pa rin ako in finding out the answer to all the how's, hanggang maipanalo lang natin 'to. ibibigay ko lahat sa'yo
+      <br>
+      I love you more than words can express.
       Forever yours 💞
     </div>
   </div>
