@@ -86,7 +86,7 @@ body::before {
   border-right: 225px solid transparent;
   border-bottom: 140px solid #ff69b4;
   transform-origin: top center;
-  transition: transform 0.8s ease;
+  transition: transform 2.5s ease;
 }
 
 /* letter */
@@ -100,13 +100,13 @@ body::before {
   opacity: 0;
   max-height: 0;
   overflow: hidden;
-  transition: all 0.8s ease;
+  transition: all 1.5s ease;
   text-align: center;
   font-size: 18px;
   line-height: 1.5;
 }
 
-/* OPEN STATE (click instead of hover) */
+/* OPEN STATE */
 .envelope-container.open .letter {
   opacity: 1;
   max-height: 900px;
@@ -114,6 +114,16 @@ body::before {
 
 .envelope-container.open .envelope::before {
   transform: rotateX(180deg);
+}
+
+/* typewriter cursor */
+#typed {
+  border-right: 2px solid #ff1493;
+  animation: blink 0.7s infinite;
+}
+
+@keyframes blink {
+  50% { border-color: transparent; }
 }
 
 /* bounce text */
@@ -144,24 +154,6 @@ body::before {
   border-radius: 10px;
   font-size: 18px;
   font-weight: bold;
-  transition: 0.3s;
-  box-shadow: 0 0 15px rgba(255, 20, 147, 0.4);
-}
-
-.btn-link:hover {
-  background: #ff1493;
-  transform: scale(1.05);
-}
-
-.btn-link:active {
-  transform: scale(0.95);
-}
-
-/* mobile */
-@media (max-width: 600px) {
-  .envelope-container { width: 95%; }
-  .letter { font-size: 16px; padding: 20px; }
-  .open-text { font-size: 18px; bottom: -40px; }
 }
 </style>
 </head>
@@ -173,19 +165,7 @@ body::before {
 <div class="envelope-container">
   <div class="envelope">
     <div class="letter">
-      💌 To My LOML,<br><br>
-
-      Happy 1st Monthsarry baby!!!!! Ang bilis nang panahon, parang kailan lang crush mo lang ako ngayon 1st monthsarry na natin.<br><br>
-
-      Nung una hindi ko ineexpect na mapunta sa'yo, na maging tayo. I know we've been through a lot lately, hindi tayo masyado nagkikita, tapos during our first months nang panliligaw ko puro pa tayo away. Pero I hope you know baby na hindi na kita susukuan ulit, wag lang may third party, wag lang tayong bumitaw sa isa't isa. Kinikilala pa kita at mas gusto kitang kilalanin lalo.<br><br>
-
-      I hope na sana mas tumagal pa tayo, I hope na kahit gano kahirap at ka imposible ay hindi tayo susuko, sana samahan mo'ko palagi kahit zero days ako.<br><br>
-
-      Nakikita ko kung gano mo gusto maging successful, nakikita ko lahat nang efforts mo, mula sa simple updates, sa panlilibre at pag rarant mo sa'kin, na a-appreciate ko lahat nang 'yon hindi man ako vocal, nakikita ko kung gano ka kahanda ibigay lahat para sakin.<br><br>
-
-      Ash sana 'wag kang sumuko, sana 'wag kang bumitaw, sana samahan mo pa rin ako in finding the answers to all the how's, hanggan maging endgame tayo :))<br><br>
-
-      I love you more than words can express. 💞
+      <span id="typed"></span>
     </div>
   </div>
 
@@ -194,10 +174,62 @@ body::before {
 
 <a href="marriageform.html" class="btn-link">Go to Marriage Form 💍</a>
 
+<audio id="loveSound" src="love.mp3" preload="auto"></audio>
+
 <script>
 const envelope = document.querySelector('.envelope-container');
+const sound = document.getElementById('loveSound');
+const typed = document.getElementById("typed");
+
+const text = `💌 To My LOML,
+
+Happy 1st Monthsarry baby!!!!! Ang bilis nang panahon, parang kailan lang crush mo lang ako ngayon 1st monthsarry na natin.
+
+Nung una hindi ko ineexpect na mapunta sa'yo, na maging tayo. I know we've been through a lot lately, hindi tayo masyado nagkikita, tapos during our first months nang panliligaw ko puro pa tayo away. Pero I hope you know baby na hindi na kita susukuan ulit, wag lang may third party, wag lang tayong bumitaw sa isa't isa. Kinikilala pa kita at mas gusto kitang kilalanin lalo.
+
+I hope na sana mas tumagal pa tayo, I hope na kahit gano kahirap at ka imposible ay hindi tayo susuko, sana samahan mo'ko palagi kahit zero days ako.
+
+Nakikita ko kung gano mo gusto maging successful, nakikita ko lahat nang efforts mo, mula sa simple updates, sa panlilibre at pag rarant mo sa'kin, na a-appreciate ko lahat nang 'yon hindi man ako vocal, nakikita ko kung gano ka kahanda ibigay lahat para sakin.
+
+Ash sana 'wag kang sumuko, sana 'wag kang bumitaw, sana samahan mo pa rin ako in finding the answers to all the how's, hanggan maging endgame tayo :))
+
+I love you more than words can express. 💞`;
+
+let i = 0;
+
+function typeWriter() {
+  if (i < text.length) {
+    if (text[i] === "\n") {
+      typed.innerHTML += "<br>";
+    } else {
+      typed.innerHTML += text[i];
+    }
+    i++;
+    setTimeout(typeWriter, 18);
+  }
+}
+
 envelope.addEventListener('click', () => {
-  envelope.classList.toggle('open');
+  const isOpen = envelope.classList.contains('open');
+
+  if (!isOpen) {
+    envelope.classList.add('open');
+
+    sound.pause();
+    sound.currentTime = 0;
+    sound.play();
+
+    typed.innerHTML = "";
+    i = 0;
+
+    typeWriter();
+
+  } else {
+    envelope.classList.remove('open');
+
+    sound.pause();
+    sound.currentTime = 0;
+  }
 });
 </script>
 
