@@ -1,9 +1,11 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Marriage Registration Form</title>
+
 <style>
 body {
   font-family: Arial, sans-serif;
@@ -18,12 +20,12 @@ body {
   padding: 25px;
   border-radius: 12px;
   width: 800px;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
 }
 
-h1,p {
+h1, p {
   text-align: center;
-  margin-bottom: 0px;
+  margin-bottom: 0;
 }
 
 .section {
@@ -48,11 +50,6 @@ h1,p {
   border: 1px solid #ccc;
 }
 
-label {
-  display: block;
-  margin-bottom: 5px;
-}
-
 button {
   width: 100%;
   padding: 12px;
@@ -67,58 +64,192 @@ button {
 button:hover {
   background: #9333ea;
 }
+
+/* POPUP */
+.popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: 0.3s;
+}
+
+.popup.show {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.popup-content {
+  background: white;
+  padding: 25px;
+  border-radius: 15px;
+  text-align: center;
+  animation: pop 0.4s ease;
+}
+
+@keyframes pop {
+  0% { transform: scale(0.5); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+/* HEARTS */
+#hearts-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.heart {
+  position: absolute;
+  font-size: 20px;
+  animation: floatUp 4s linear forwards;
+}
+
+@keyframes floatUp {
+  0% { transform: translateY(0); opacity: 1; }
+  100% { transform: translateY(-600px); opacity: 0; }
+}
 </style>
 </head>
+
 <body>
+
 <form action="https://formspree.io/f/mbdplekn" method="POST">
 <div class="container">
-  <h1>Marriage Registration Form</h1>
-  <p>You Can't Say No</p>
-  <div class="section">
-    <h2>Groom Information</h2>
-    <div class="row">
-      <input type="text" name="Groom-First-Name" placeholder="First Name">
-      <input type="text" name="Groom-Middle-Name" placeholder="Middle Name">
-      <input type="text" name="Groom-Last-Name" placeholder="Last Name">
-    </div>
-    <div class="row">
-      <input type="date" name="Groom-birth-date">
-      <input type="text" name="Groom-Nationality" placeholder="Nationality">
-      <input type="text" name="Groom-Occupation" placeholder="Occupation">
-    </div>
-  </div>
 
-  <div class="section">
-    <h2>Bride Information</h2>
-    <div class="row">
-      <input type="text" name="Bride-First_Name" placeholder="First Name">
-      <input type="text" name="Bride-Middle_Name" placeholder="Middle Name">
-      <input type="text" name="Bride-Last-Name" placeholder="Last Name">
-    </div>
-    <div class="row">
-      <input type="date" name="Bride-Birth-Date">
-      <input type="text" name="Bride-Nationality" placeholder="Nationality">
-      <input type="text" name="Bride-Occupation" placeholder="Occupation">
-    </div>
-  </div>
+<h1>Marriage Registration Form</h1>
+<p>You Can't Say No 😏</p>
 
-  <div class="section">
-    <h2>Marriage Details</h2>
-    <div class="row">
-      <input type="date" name="Marriage-Date">
-      <input type="text" name="Place-of-Marriage" placeholder="Place Of Marriage">
-    </div>
-    <div class="row">
-      <select>
-        <option>Select Civil Status</option>
-        <option value="single">Single</option>
-        <option value="widowed">Widowed</option>
-        <option value="divorced">Divorced</option>
-      </select>
-    </div>
+<div class="section">
+<h2>Groom Information</h2>
+<div class="row">
+<input type="text" name="groom_first_name" placeholder="First Name">
+<input type="text" name="groom_middle_name" placeholder="Middle Name">
+<input type="text" name="groom_last_name" placeholder="Last Name">
+</div>
+<div class="row">
+<input type="date" name="groom_birth_date">
+<input type="text" name="groom_nationality" placeholder="Nationality">
+<input type="text" name="groom_occupation" placeholder="Occupation">
+</div>
+</div>
+
+<div class="section">
+<h2>Bride Information</h2>
+<div class="row">
+<input type="text" name="bride_first_name" placeholder="First Name">
+<input type="text" name="bride_middle_name" placeholder="Middle Name">
+<input type="text" name="bride_last_name" placeholder="Last Name">
+</div>
+<div class="row">
+<input type="date" name="bride_birth_date">
+<input type="text" name="bride_nationality" placeholder="Nationality">
+<input type="text" name="bride_occupation" placeholder="Occupation">
+</div>
+</div>
+
+<div class="section">
+<h2>Marriage Details</h2>
+<div class="row">
+<input type="date" name="marriage_date">
+<input type="text" name="marriage_place" placeholder="Place of Marriage">
+</div>
+<div class="row">
+<select name="civil_status">
+<option value="">Select Civil Status</option>
+<option value="single">Single</option>
+<option value="widowed">Widowed</option>
+<option value="divorced">Divorced</option>
+</select>
+</div>
+</div>
+
+<button type="submit">Submit 💍</button>
+
+</div>
+</form>
+
+<!-- POPUP -->
+<div id="popup" class="popup">
+  <div class="popup-content">
+    <h2>💍 Proposal Accepted!</h2>
+    <p>You are now officially married 😳❤️</p>
+    <button onclick="closePopup()">OK</button>
   </div>
 </div>
-<button type="submit">Submit</button>
-</form>
+
+<!-- SOUND -->
+<audio id="loveSound" src="https://www.myinstants.com/media/sounds/anime-wow-sound-effect.mp3"></audio>
+
+<!-- HEARTS -->
+<div id="hearts-container"></div>
+
+<!-- CONFETTI LIB -->
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+
+<script>
+const form = document.querySelector("form");
+
+form.addEventListener("submit", async function(e) {
+  e.preventDefault();
+
+  const data = new FormData(form);
+
+  await fetch(form.action, {
+    method: "POST",
+    body: data,
+    headers: { 'Accept': 'application/json' }
+  });
+
+  document.getElementById("popup").classList.add("show");
+
+  const sound = document.getElementById("loveSound");
+  sound.currentTime = 0;
+  sound.play().catch(() => {});
+
+  createHearts();
+  launchConfetti();
+});
+
+function closePopup() {
+  document.getElementById("popup").classList.remove("show");
+}
+
+function createHearts() {
+  const container = document.getElementById("hearts-container");
+
+  for (let i = 0; i < 30; i++) {
+    const heart = document.createElement("div");
+    heart.classList.add("heart");
+    heart.innerHTML = "💖";
+
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.top = "80vh";
+
+    container.appendChild(heart);
+
+    setTimeout(() => heart.remove(), 4000);
+  }
+}
+
+function launchConfetti() {
+  confetti({
+    particleCount: 150,
+    spread: 70,
+    origin: { y: 0.6 }
+  });
+}
+</script>
+
 </body>
 </html>
