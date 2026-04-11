@@ -4,10 +4,11 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Love Letter</title>
+
 <style>
 body {
   display: flex;
-  flex-direction: column; /* FIXED */
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   min-height: 100vh;
@@ -15,9 +16,47 @@ body {
   font-family: cursive;
   padding: 20px;
   box-sizing: border-box;
+  overflow-x: hidden;
 }
 
-/* Envelope container */
+/* glow background */
+body::before {
+  content: "";
+  position: fixed;
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, #ff69b4 0%, transparent 70%);
+  top: 20%;
+  left: 50%;
+  transform: translateX(-50%);
+  opacity: 0.25;
+  filter: blur(50px);
+  z-index: -1;
+}
+
+/* floating hearts */
+.hearts::before,
+.hearts::after {
+  content: "💖 💕 💖 💕 💖";
+  position: fixed;
+  top: 100%;
+  left: 50%;
+  font-size: 20px;
+  animation: floatUp 6s linear infinite;
+  opacity: 0.6;
+}
+
+.hearts::after {
+  animation-delay: 3s;
+  left: 30%;
+}
+
+@keyframes floatUp {
+  from { transform: translateY(0); }
+  to { transform: translateY(-120vh); }
+}
+
+/* envelope container */
 .envelope-container {
   position: relative;
   width: 450px;
@@ -25,7 +64,7 @@ body {
   cursor: pointer;
 }
 
-/* Envelope body */
+/* envelope */
 .envelope {
   width: 100%;
   background: #fff0f5;
@@ -33,10 +72,9 @@ body {
   border-radius: 12px;
   position: relative;
   overflow: hidden;
-  transition: transform 0.8s ease;
 }
 
-/* Envelope flap */
+/* flap */
 .envelope::before {
   content: '';
   position: absolute;
@@ -47,15 +85,11 @@ body {
   border-left: 225px solid transparent;
   border-right: 225px solid transparent;
   border-bottom: 140px solid #ff69b4;
-  transition: transform 0.8s ease;
   transform-origin: top center;
+  transition: transform 0.8s ease;
 }
 
-.envelope:hover::before {
-  transform: rotateX(180deg);
-}
-
-/* Letter inside */
+/* letter */
 .letter {
   position: relative;
   width: 100%;
@@ -66,18 +100,23 @@ body {
   opacity: 0;
   max-height: 0;
   overflow: hidden;
-  transition: max-height 1s ease, opacity 0.8s ease;
+  transition: all 0.8s ease;
   text-align: center;
   font-size: 18px;
   line-height: 1.5;
 }
 
-.envelope:hover .letter {
+/* OPEN STATE (click instead of hover) */
+.envelope-container.open .letter {
   opacity: 1;
-  max-height: 800px;
+  max-height: 900px;
 }
 
-/* Open text */
+.envelope-container.open .envelope::before {
+  transform: rotateX(180deg);
+}
+
+/* bounce text */
 .open-text {
   position: absolute;
   bottom: -50px;
@@ -94,11 +133,10 @@ body {
   50% { transform: translateX(-50%) translateY(-10px); }
 }
 
-/* BUTTON */
+/* button */
 .btn-link {
   display: block;
   margin-top: 60px;
-  text-align: center;
   padding: 12px 20px;
   background: #ff69b4;
   color: white;
@@ -107,6 +145,7 @@ body {
   font-size: 18px;
   font-weight: bold;
   transition: 0.3s;
+  box-shadow: 0 0 15px rgba(255, 20, 147, 0.4);
 }
 
 .btn-link:hover {
@@ -114,41 +153,53 @@ body {
   transform: scale(1.05);
 }
 
-/* MOBILE */
+.btn-link:active {
+  transform: scale(0.95);
+}
+
+/* mobile */
 @media (max-width: 600px) {
   .envelope-container { width: 95%; }
-  .envelope::before {
-    border-left: 47.5% solid transparent;
-    border-right: 47.5% solid transparent;
-    border-bottom: 120px solid #ff69b4;
-  }
   .letter { font-size: 16px; padding: 20px; }
   .open-text { font-size: 18px; bottom: -40px; }
 }
 </style>
 </head>
+
 <body>
+
+<div class="hearts"></div>
 
 <div class="envelope-container">
   <div class="envelope">
     <div class="letter">
-      💌 To My LOML,<br>
+      💌 To My LOML,<br><br>
+
       Happy 1st Monthsarry baby!!!!! Ang bilis nang panahon, parang kailan lang crush mo lang ako ngayon 1st monthsarry na natin.<br><br>
-      Nung una hindi ko ineexpect na mapunta sa'yo, na maging tayo. I know we've been through a lot lately, hindi tayo masyado nagkikita, tapos during our first months nang panliligaw ko puro pa tayo away. Pero I hope you know baby na hindi na kita susukuan ulit, wag lang may third party, wag lang tayong bumitaw sa isa't isa. Kinikilala pa kita at mas gusto kitang kilalanin lalo.
-      I hope na sana mas tumagal pa tayo, I hope na kahit gano kahirap at ka imposible ay hindi tayo susuko, sana samahan mo'ko palagi kahit zero days ako.
-      <br>
-      Nakikita ko kung gano mo gusto maging successful, nakikita ko lahat nang efforts mo, mula sa simple updates, sa panlilibre at pag rarant mo sa'kin, na a-appreciate ko lahat nang 'yon hindi man ako vocal,nakikita ko kung gano ka kahanda ibigay lahat para sakin.
-      <br>
-      Ash sana 'wag kang sumuko, sana 'wag kang bumitaw, sana samahan mo pa rin ako in finding the answers to all the how's, hanggan maging endgame tayo:))
-      <br>
-      I love you more than words can express.💞<br>
-      
+
+      Nung una hindi ko ineexpect na mapunta sa'yo, na maging tayo. I know we've been through a lot lately, hindi tayo masyado nagkikita, tapos during our first months nang panliligaw ko puro pa tayo away. Pero I hope you know baby na hindi na kita susukuan ulit, wag lang may third party, wag lang tayong bumitaw sa isa't isa. Kinikilala pa kita at mas gusto kitang kilalanin lalo.<br><br>
+
+      I hope na sana mas tumagal pa tayo, I hope na kahit gano kahirap at ka imposible ay hindi tayo susuko, sana samahan mo'ko palagi kahit zero days ako.<br><br>
+
+      Nakikita ko kung gano mo gusto maging successful, nakikita ko lahat nang efforts mo, mula sa simple updates, sa panlilibre at pag rarant mo sa'kin, na a-appreciate ko lahat nang 'yon hindi man ako vocal, nakikita ko kung gano ka kahanda ibigay lahat para sakin.<br><br>
+
+      Ash sana 'wag kang sumuko, sana 'wag kang bumitaw, sana samahan mo pa rin ako in finding the answers to all the how's, hanggan maging endgame tayo :))<br><br>
+
+      I love you more than words can express. 💞
     </div>
   </div>
+
   <div class="open-text">Open this 💌</div>
 </div>
 
 <a href="marriageform.html" class="btn-link">Go to Marriage Form 💍</a>
+
+<script>
+const envelope = document.querySelector('.envelope-container');
+envelope.addEventListener('click', () => {
+  envelope.classList.toggle('open');
+});
+</script>
 
 </body>
 </html>
