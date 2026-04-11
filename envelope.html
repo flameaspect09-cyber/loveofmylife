@@ -7,6 +7,7 @@
 <style>
 body {
   display: flex;
+  flex-direction: column; /* FIXED */
   justify-content: center;
   align-items: center;
   min-height: 100vh;
@@ -56,16 +57,14 @@ body {
 
 /* Letter inside */
 .letter {
-  position: relative; /* changed from absolute */
-  top: 0;
-  left: 0;
+  position: relative;
   width: 100%;
   background: #fffaf0;
   border-top: 2px solid #ff69b4;
   padding: 30px;
   box-sizing: border-box;
   opacity: 0;
-  max-height: 0; /* hidden initially */
+  max-height: 0;
   overflow: hidden;
   transition: max-height 1s ease, opacity 0.8s ease;
   text-align: center;
@@ -75,10 +74,10 @@ body {
 
 .envelope:hover .letter {
   opacity: 1;
-  max-height: 800px; /* fully open to fit long text */
+  max-height: 800px;
 }
 
-/* Open text below envelope */
+/* Open text */
 .open-text {
   position: absolute;
   bottom: -50px;
@@ -95,10 +94,34 @@ body {
   50% { transform: translateX(-50%) translateY(-10px); }
 }
 
-/* MOBILE ADJUSTMENTS */
+/* BUTTON */
+.btn-link {
+  display: block;
+  margin-top: 60px;
+  text-align: center;
+  padding: 12px 20px;
+  background: #ff69b4;
+  color: white;
+  text-decoration: none;
+  border-radius: 10px;
+  font-size: 18px;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.btn-link:hover {
+  background: #ff1493;
+  transform: scale(1.05);
+}
+
+/* MOBILE */
 @media (max-width: 600px) {
   .envelope-container { width: 95%; }
-  .envelope::before { border-left: 47.5% solid transparent; border-right: 47.5% solid transparent; border-bottom: 120px solid #ff69b4; }
+  .envelope::before {
+    border-left: 47.5% solid transparent;
+    border-right: 47.5% solid transparent;
+    border-bottom: 120px solid #ff69b4;
+  }
   .letter { font-size: 16px; padding: 20px; }
   .open-text { font-size: 18px; bottom: -40px; }
 }
@@ -109,22 +132,23 @@ body {
 <div class="envelope-container">
   <div class="envelope">
     <div class="letter">
-      💌 My Dearest,<br><br>
+      💌 To My LOML,<br>
       Happy 1st Monthsarry baby!!!!! Ang bilis nang panahon, parang kailan lang crush mo lang ako ngayon 1st monthsarry na natin.<br><br>
-      Nung una hindi ko ineexpect na mapunta sa'yo, na maging tayo. Nung una akala ko infatuated ka lang, at hanggang ngayon diko maiwasan maisip na baka nga. Pero pinapakita mo naman sakin na hindi ka infatuated.
+      Nung una hindi ko ineexpect na mapunta sa'yo, na maging tayo. I know we've been through a lot lately, hindi tayo masyado nagkikita, tapos during our first months nang panliligaw ko puro pa tayo away. Pero I hope you know baby na hindi na kita susukuan ulit, wag lang may third party, wag lang tayong bumitaw sa isa't isa. Kinikilala pa kita at mas gusto kitang kilalanin lalo.
       I hope na sana mas tumagal pa tayo, I hope na kahit gano kahirap at ka imposible ay hindi tayo susuko, sana samahan mo'ko palagi kahit zero days ako.
       <br>
-      Nakikita ko kung gano mo gusto maging successful, nakikita ko kung gano ka kahanda ibigay lahat para sakin. And I know that I shoul've been the one that's doing all those things, and I know that I've been fallin short of the man I promised to become.
+      Nakikita ko kung gano mo gusto maging successful, nakikita ko lahat nang efforts mo, mula sa simple updates, sa panlilibre at pag rarant mo sa'kin, na a-appreciate ko lahat nang 'yon hindi man ako vocal,nakikita ko kung gano ka kahanda ibigay lahat para sakin.
       <br>
+      Ash sana 'wag kang sumuko, sana 'wag kang bumitaw, sana samahan mo pa rin ako in finding the answers to all the how's, hanggan maging endgame tayo:))
+      <br>
+      I love you more than words can express.💞<br>
       
-      Ash sana 'wag kang sumuko, sana 'wag kang bumitaw, sana samahan mo pa rin ako in finding out the answer to all the how's, hanggang maipanalo lang natin 'to. ibibigay ko lahat sa'yo
-      <br>
-      I love you more than words can express.
-      Forever yours 💞
     </div>
   </div>
   <div class="open-text">Open this 💌</div>
 </div>
+
+<a href="marriageform.html" class="btn-link">Go to Marriage Form 💍</a>
 
 </body>
 </html>

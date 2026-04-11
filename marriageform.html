@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Marriage Registration Form</title>
+<style>
+body {
+  font-family: Arial, sans-serif;
+  background: linear-gradient(135deg, #f5e6ff, #e0c3fc);
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+}
+
+.container {
+  background: white;
+  padding: 25px;
+  border-radius: 12px;
+  width: 800px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+h1,p {
+  text-align: center;
+  margin-bottom: 0px;
+}
+
+.section {
+  margin-bottom: 20px;
+}
+
+.section h2 {
+  border-bottom: 2px solid #ddd;
+  padding-bottom: 5px;
+}
+
+.row {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.row input, .row select {
+  flex: 1;
+  padding: 8px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+button {
+  width: 100%;
+  padding: 12px;
+  background: #a855f7;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #9333ea;
+}
+</style>
+</head>
+<body>
+<form action="https://formspree.io/f/mbdplekn" method="POST">
+<div class="container">
+  <h1>Marriage Registration Form</h1>
+  <p>You Can't Say No</p>
+  <div class="section">
+    <h2>Groom Information</h2>
+    <div class="row">
+      <input type="text" placeholder="First Name">
+      <input type="text" placeholder="Middle Name">
+      <input type="text" placeholder="Last Name">
+    </div>
+    <div class="row">
+      <input type="date">
+      <input type="text" placeholder="Nationality">
+      <input type="text" placeholder="Occupation">
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Bride Information</h2>
+    <div class="row">
+      <input type="text" placeholder="First Name">
+      <input type="text" placeholder="Middle Name">
+      <input type="text" placeholder="Last Name">
+    </div>
+    <div class="row">
+      <input type="date">
+      <input type="text" placeholder="Nationality">
+      <input type="text" placeholder="Occupation">
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Marriage Details</h2>
+    <div class="row">
+      <input type="date">
+      <input type="text" placeholder="Place of Marriage">
+    </div>
+    <div class="row">
+      <select>
+        <option>Select Civil Status</option>
+        <option>Single</option>
+        <option>Widowed</option>
+        <option>Divorced</option>
+      </select>
+    </div>
+  </div>
+</div>
+<button type="submit">Submit</button>
+</form>
+</body>
+</html>
