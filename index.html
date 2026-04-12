@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -120,82 +119,51 @@ ul li {
   object-fit:cover;
   border-radius:15px;
   border:2px solid white;
-
   animation: bounce 2s ease-in-out infinite;
   transition:0.3s;
 }
 
-/* PARA HINDI SABAY-SABAY (MAS NATURAL) */
 .bottom-item:nth-child(1) { animation-delay: 0s; }
 .bottom-item:nth-child(2) { animation-delay: 0.3s; }
 .bottom-item:nth-child(3) { animation-delay: 0.6s; }
 
-/* HOVER EFFECT */
 .bottom-item:hover {
   transform: scale(1.1);
 }
 
-/* BOUNCE ANIMATION */
-@keyframes bounce {
-  0%, 100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-15px);
-  }
-}
-/* BABY MEMORIES GALLERY */
-.memories-baby {
-  display: flex;
-  justify-content: center;  /* naka-center horizontally */
-  align-items: flex-end;    /* base ng images aligned sa bottom */
-  gap: 20px;                /* space between images */
-  margin: 40px 0;
-  flex-wrap: wrap;          /* auto-wrap sa mobile */
-}
-
-/* BABY IMAGES */
-.baby-item {
-  width: 140px;             /* desktop default size */
-  height: 200px;
-  object-fit: cover;
-  border-radius: 12px;
-  border: 2px solid white;
-  
-  animation: bounce 2s ease-in-out infinite;  /* bounce animation */
-  transition: transform 0.3s ease;           /* hover smooth */
-}
-
-/* staggered bounce effect */
-.baby-item:nth-child(1) { animation-delay: 0s; }
-.baby-item:nth-child(2) { animation-delay: 0.3s; }
-.baby-item:nth-child(3) { animation-delay: 0.6s; }
-.baby-item:nth-child(4) { animation-delay: 0.9s; }
-
-/* hover scale effect */
-.baby-item:hover {
-  transform: scale(1.1);
-}
-
-/* BOUNCE ANIMATION */
 @keyframes bounce {
   0%, 100% { transform: translateY(0); }
   50% { transform: translateY(-15px); }
 }
 
-/* MOBILE ADJUSTMENTS */
-@media (max-width: 600px) {
-  .baby-item {
-    width: 90px;
-    height: 120px;
-  }
-
-  /* subtle bounce sa mobile */
-  @keyframes bounce {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-8px); }
-  }
+/* BABY MEMORIES */
+.memories-baby {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  gap: 20px;
+  margin: 40px 0;
+  flex-wrap: wrap;
 }
+
+.baby-item {
+  width: 140px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 12px;
+  border: 2px solid white;
+  animation: bounce 2s ease-in-out infinite;
+}
+
+.baby-item:nth-child(1){animation-delay:0s;}
+.baby-item:nth-child(2){animation-delay:0.3s;}
+.baby-item:nth-child(3){animation-delay:0.6s;}
+.baby-item:nth-child(4){animation-delay:0.9s;}
+
+.baby-item:hover {
+  transform: scale(1.1);
+}
+
 /* MOBILE */
 @media (max-width: 600px) {
   h1 { font-size:24px; }
@@ -204,8 +172,6 @@ ul li {
   .thing { font-size:18px; }
   .story p { font-size:16px; }
   .memory img { width:120px; height:180px; }
-  .memories-bottom { width:250px; height:150px; }
-  .memories-bottom .bottom-item { width:80px; height:120px; }
 }
 
 /* BUTTON */
@@ -220,6 +186,8 @@ ul li {
   cursor:pointer;
   box-shadow: 0 5px 15px rgba(226, 206, 243, 0.4);
   transition: all 0.3s ease;
+  text-decoration:none;
+  display:inline-block;
 }
 
 .love-button:hover {
@@ -229,17 +197,30 @@ ul li {
 
 .love-button:active {
   transform: scale(0.98);
-
 }
+
 .sunf{
   width: 30px;
+}
+.chapter{
+  text-align:center;
+  font-size:14px;
+  letter-spacing:2px;
+  color:#a855f7;
+  margin-top:-10px;
+  margin-bottom:20px;
+  opacity:0.8;
+  padding-bottom: 30px;
 }
 </style>
 </head>
 <body>
 
-<h1>The Love Of My Life 💞</h1>
 
+<h1>The Love Of My Life 💞</h1>
+<h3 class="chapter">Chapter 1: The Beginning</h3>
+
+<!-- ALL YOUR CONTENT UNTOUCHED -->
 <div class="about-her">
   <h2>Things About Her:</h2>
   <ul>
@@ -265,7 +246,9 @@ ul li {
   <h2>How We Met</h2>
   <p>We met first during our school intrams. The match hasn't started yet, while me and my team are in the lobby, she added me for the reason of stalking. We won and became champions. A few days after, I invited her to play since I got tired playing solo. Then eventually, she found my FB account. We played more, and slowly I developed feelings for her. She confessed indirectly, saying she admired me — and that's how I met your mom.</p>
 </div>
-<img src="https://www.shutterstock.com/image-photo/bright-sunflower-flower-closeup-full-600nw-2521178769.jpg" class="sunf">
+
+
+
 <div>
   <h2 class="things">Things About Our Relationship</h2>
   <ul class="thing">
@@ -284,6 +267,7 @@ ul li {
 <div class="what-she-loves">
   <h2>What she loves:</h2>
   <ul>
+    
     <li>Hugs</li>
     <li>Cuddles</li>
     <li>Kisses</li>
@@ -298,7 +282,7 @@ ul li {
 </div>
 
 <div class="things-she-hates">
-  <h2>Things She Hates <img src="https://media.tenor.com/FtlLleuICOcAAAAM/angry-emoji.gif" width="50" height="30"></h2> 
+  <h2>Things She Hates</h2>
   <ul>
     <li>Cheating</li>
     <li>Liars</li>
@@ -311,29 +295,30 @@ ul li {
   </ul>
 </div>
 
-<!-- ORIGINAL 3 IMAGE GALLERY -->
-<h2 class="sparkle-hover">Our Memories 💞</h2>
+<h2>Our Memories 💞</h2>
 <div class="memories">
-  <div class="memory"><img src="memory1.jpg" alt="Memory 1"></div>
-  <div class="memory"><img src="memory2.jpg" alt="Memory 2"></div>
-  <div class="memory"><img src="memory3.jpg" alt="Memory 3"></div>
+  <div class="memory"><img src="memory1.jpg"></div>
+  <div class="memory"><img src="memory2.jpg"></div>
+  <div class="memory"><img src="memory3.jpg"></div>
 </div>
 
-<!-- BOTTOM SPINNING GALLERY: 2 videos + 1 center image -->
 <div class="memories-bottom">
-  <video class="bottom-item" src="video1.mp4" autoplay loop muted></video>
-  <video class="bottom-item" src="video3.mp4" autoplay loop muted></video>
-  <video class="bottom-item" src="video2.mp4" autoplay loop muted></video>
+  <video class="bottom-item" src="video1.mp4" autoplay muted loop></video>
+  <video class="bottom-item" src="video3.mp4" autoplay muted loop></video>
+  <video class="bottom-item" src="video2.mp4" autoplay muted loop></video>
 </div>
+
 <h2>Her Baby Pics</h2>
 <div class="memories-baby">
-  <img class="baby-item" src="baby1.jpg" alt="Baby 1">
-  <img class="baby-item" src="baby2.jpg" alt="Baby 2">
-  <img class="baby-item" src="baby3.jpg" alt="Baby 3">
-  <img class="baby-item" src="baby4.jpg" alt="Baby 4">
+  <img class="baby-item" src="baby1.jpg">
+  <img class="baby-item" src="baby2.jpg">
+  <img class="baby-item" src="baby3.jpg">
+  <img class="baby-item" src="baby4.jpg">
 </div>
-<div style="text-align: center; margin-top: 20px;">
-<a href="envelope.html" class="love-button" target="_blank">Read My Letter 💌</a>
+
+<div style="text-align:center; margin-top:20px;">
+<a href="timeline.html" class="love-button">Our TimeLine💞</a>
 </div>
+
 </body>
 </html>

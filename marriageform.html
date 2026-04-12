@@ -119,6 +119,18 @@ button:hover {
   0% { transform: translateY(0); opacity: 1; }
   100% { transform: translateY(-600px); opacity: 0; }
 }
+.container h1 {
+  margin-bottom: 10px;
+}
+
+.container p {
+  margin-bottom: 20px;
+  opacity: 0.8;
+}
+.container {
+  box-shadow: 0 0 30px rgba(168, 85, 247, 0.4),
+              0 10px 25px rgba(0,0,0,0.2);
+}
 </style>
 </head>
 
@@ -127,8 +139,8 @@ button:hover {
 <form action="https://formspree.io/f/mbdplekn" method="POST">
 <div class="container">
 
-<h1>Marriage Registration Form</h1>
-<p>You Can't Say No 😏</p>
+<h1>Final Chapter: Forever💕</h1>
+<p>You Can't Say No to Forever 😏</p>
 
 <div class="section">
 <h2>Groom Information</h2>
@@ -183,13 +195,13 @@ button:hover {
 <div id="popup" class="popup">
   <div class="popup-content">
     <h2>💍 Proposal Accepted!</h2>
-    <p>You are now officially married 😳❤️</p>
+    <p>We are now officially married 😳❤️</p>
     <button onclick="closePopup()">OK</button>
   </div>
 </div>
 
 <!-- SOUND -->
-<audio id="loveSound" src="yan.mp3"></audio>
+<audio id="loveSound" src="Yayyy! Sound Effect.mp3"></audio>
 
 <!-- HEARTS -->
 <div id="hearts-container"></div>
@@ -244,11 +256,15 @@ function createHearts() {
 
 function launchConfetti() {
   confetti({
-    particleCount: 150,
-    spread: 70,
+    particleCount: 1000,
+    spread: 1000,
     origin: { y: 0.6 }
   });
+  setTimeout(()=>{
+  alert("Thank you for choosing me. Always. 💞");
+}, 1500);
 }
+
 </script>
 
 </body>
