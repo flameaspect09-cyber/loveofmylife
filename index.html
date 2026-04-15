@@ -114,7 +114,17 @@ ul li {
   margin: 40px 0;
   padding: 20px 0;
   flex-wrap: wrap;
+  
 }
+.memories-bottom {
+  position: relative;
+  background-image: url(https://static.vecteezy.com/system/resources/thumbnails/051/333/917/small/a-simple-hand-drawn-red-heart-symbol-on-a-transparent-background-perfect-for-valentine-s-day-love-themes-and-romantic-designs-png.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 1000px; /* 🔥 adjust mo ito */
+  padding: 115px 0; /* 🔥 dagdag space para kasya videos */
+}
+
 
 .video-wrapper {
   position: relative;
@@ -257,10 +267,51 @@ ul li {
   opacity:0.8;
   padding-bottom: 30px;
 }
+/* NAVIGATION BAR */
+.navbar {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(10px);
+  padding: 15px 0;
+  text-align: center;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 4px 15px rgba(168, 85, 247, 0.2);
+  margin-bottom: 20px;
+}
+
+.nav-link {
+  display: inline-block;
+  margin: 0 12px;
+  padding: 10px 18px;
+  color: #6b21a8;
+  text-decoration: none;
+  font-weight: 600;
+  border-radius: 25px;
+  transition: all 0.3s ease;
+  font-size: 15px;
+}
+
+.nav-link:hover {
+  background: linear-gradient(135deg, #E2CEF3, #c8a8eb);
+  color: white;
+  transform: translateY(-2px);
+}
+
+.nav-link.active {
+  background: linear-gradient(135deg, #a855f7, #c026d3);
+  color: white;
+}
 </style>
 </head>
 <body>
-
+<!-- NAVIGATION BAR -->
+<nav class="navbar">
+  <a href="index.html" class="nav-link">Home 💞</a>
+  <a href="timeline.html" class="nav-link">Timeline 📖</a>
+  <a href="envelope.html" class="nav-link">My Letter 💌</a>
+  <a href="marriageform.html" class="nav-link">Forever 💍</a>
+</nav>
 
 <h1>The Love Of My Life 💞</h1>
 <h3 class="chapter">Chapter 1: The Beginning</h3>
